@@ -40,6 +40,17 @@ function getElementFieldInnerText(elementId){
 }
 
 
+// rhombus
+document.getElementById('rhombus-btn').addEventListener('click', function(){
+    const rhombusTitle= getElementFieldInnerText('rhombus-title')
+    const rhombusD1= getInputFieldValue('rhombus-d1');
+    const rhombusD2 = getInputFieldValue('rhombus-d2');
+    serial += 1;
+    
+    const areaOfRhombus=0.5*rhombusD1*rhombusD2;
+    displayData(rhombusTitle, areaOfRhombus.toFixed(2));
+
+})
 
 // common function to display data
 function displayData(title, area) {
