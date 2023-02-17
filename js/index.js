@@ -74,3 +74,5 @@ function displayData(title, area) {
 }
 console.log(generateRandomColor()); 
 document.body.style.backgroundColor= generateRandomColor();
+
+
