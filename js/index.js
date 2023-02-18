@@ -40,14 +40,24 @@ function displayData(title, area) {
     tr.innerHTML = `
       <td>${serial}</td>
       <td>${title}</td>
-      <td>${area}cm<sup>2</sup></td>
-      <td>
-      <button class="convert-btn lg:px-2 md:p-1 text-white rounded bg-blue-800">Covert to m<sup>2</sup></button>
+      <td ><span class="areas">${area}cm</span><sup>2</sup></td>
+      <td class="convert-btn">
+      <button class="lg:px-2 md:p-1 text-white rounded bg-blue-800">Covert to m<sup>2</sup></button>
       </td>
       <td><i class="delete-btn fa-solid fa-delete-left"></i></td>
     `;
     container.appendChild(tr);
-
+    // convert cm2 to m2
+    const convertButtons = document.getElementsByClassName('convert-btn');
+    for (const item of convertButtons) {
+        item.addEventListener('click', function(e){
+            e.target.innerText='done';
+           const areas = document.getElementsByClassName('areas');
+            for (const area of areas) {
+                area.innerHTML=`<span>${parseInt(area.innerText)*0.0001}<span>m</sup>`;
+            }
+        })
+    }
     // Delete Item
   const items = document.getElementsByClassName('delete-btn');
   for (const item of items) {
