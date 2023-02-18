@@ -8,9 +8,30 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.50.1/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        .pentagon{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 0;
+      width: 180px;
+      border-top: 180px solid rgb(0, 66, 128);
+      border-left: 90px solid transparent;
+      border-right: 90px solid transparent;
+    }
+   
+    .pentagon:after{
+      position: absolute;
+      content: '';
+      border-bottom: 180px solid rgb(0, 66, 128);
+      border-left: 180px solid transparent;
+      border-right: 180px solid transparent;
+      bottom: 180px;
+      left: -90px;
+    }
     </style>
 </head>
-<body >
+<body>
     <header class=" mx-auto">
         <div class="navbar bg-blue-200 rounded-sm  mx-auto flex justify-between align-middle">
             <div class="flex flex-col">
@@ -24,12 +45,13 @@
         </div>
     </header>
     <main class=" md:flex lg:flex ">
-        <section class="grid gap-3 md:grid-cols-3 lg:grid-cols-3 md:w-8/12 lg:w-8/12">
-            <div class="card w-full bg-base-100 shadow-xl px-3  py-4 m-3">
+        <section class="grid gap-3 md:grid-cols-2 lg:grid-cols-3 md:w-8/12 lg:w-8/12">
+            <!-- Triangle Area -->
+            <div id="card-one" class="card w-full bg-base-100 shadow-xl px-3  py-4 m-3">
                 <div class="p-4 flex justify-center items-center">
                     <div class="w-0 h-0 
                    border-l-[80px] border-l-transparent
-                   border-b-[180px] border-b-yellow-200
+                   border-b-[194px] border-b-yellow-200
                    border-r-[80px] border-r-transparent
                     "></div>
                 </div>
@@ -46,10 +68,10 @@
                   <button id="triangle-btn" class="btn w-11/12 mx-auto bg-blue-800">Calculate</button>
                 </div>
             </div>
-        
-            <div class="card w-full bg-base-100 shadow-xl px-3 py-4 m-3">
+        <!-- Rectangle Area -->
+            <div id="card-tow" class="card w-full bg-base-100 shadow-xl px-3 py-4 m-3">
                 <div class="p-4 flex justify-center items-center">
-                    <div class="w-48 mx-auto bg-indigo-300 h-32"></div>
+                    <div class="lg:w-11/12 mx-auto bg-indigo-300 h-48"></div>
                 </div>
                 <h1 id="rectangle-title" class="text-center text-3xl font-semibold">Rectangle</h1>
                 <div class="text-center">Area(A)= w×I</div>
@@ -64,8 +86,8 @@
                   <button id="rectangle-btn" class="btn w-11/12 mx-auto bg-blue-800">Calculate</button>
                 </div>
             </div>
-
-            <div class="card w-full bg-base-100 shadow-xl px-3 py-4 m-3">
+            <!-- Parallelogram Area -->
+            <div id="card-four" class="card w-full bg-base-100 shadow-xl px-3 py-4 m-3">
                 <div class="p-4 flex justify-center items-center">
                     <div class="w-11/12 skew-x-[-20deg] mx-auto bg-green-300 h-36"></div>
                 </div>
@@ -81,8 +103,8 @@
                   <button id="parallelogram-btn" class="btn w-11/12 mx-auto bg-blue-800">Calculate</button>
                 </div>
             </div>
-
-            <div class="card w-full bg-base-100  shadow-xl px-3 py-4 m-3">
+            <!-- Rhombus Area -->
+            <div id="card-five" class="card w-full bg-base-100  shadow-xl px-3 py-4 m-3">
                 <div class="p-4 flex justify-center items-center">
                     <div class="w-11/12 skew-x-[-20deg] mx-auto bg-yellow-500 h-44"></div>
                 </div>
@@ -98,10 +120,10 @@
                   <button id="rhombus-btn" class="btn w-11/12 mx-auto bg-blue-800">Calculate</button>
                 </div>
             </div>
-        
+            <!-- Pentagon Area -->
             <div class="card w-full bg-base-100  shadow-xl px-3 py-4 m-3">
-                <div class="p-4 flex justify-center items-center">
-                    <div class="w-11/12 skew-x-[-20deg] mx-auto bg-yellow-500 h-44"></div>
+                <div class="pentagon">
+                    <!-- <div class="w-11/12 skew-x-[-20deg] mx-auto bg-yellow-500 h-44"></div> -->
                 </div>
                 <h1 id="pentagon-title" class="text-center text-3xl font-semibold">Pentagon</h1>
                 <div class="text-center">Area(A)= 0.5×p×a</div>
@@ -115,11 +137,10 @@
                   <button id="pentagon-btn" class="btn w-11/12 mx-auto bg-blue-800">Calculate</button>
                 </div>
             </div>
-        
-            
-            <div class="card w-full bg-base-100  shadow-xl px-3 py-4 m-3">
+            <!-- Ellipse Area -->
+            <div id="card-six" class="card w-full bg-base-100  shadow-xl px-3 py-4 m-3">
                 <div class="p-4 flex justify-center items-center">
-                    <div class="w-36  mx-auto bg-slate-300 rounded-[50%] h-24"></div>
+                    <div class="w-11/12  mx-auto bg-slate-300 rounded-[50%] h-36"></div>
                 </div>
                 <h1 id="ellipse-title" class="text-center text-3xl font-semibold">Ellipse</h1>
                 <div class="text-center">Area(A)= πab</div>
@@ -133,9 +154,6 @@
                   <button id="ellipse-btn" class="btn w-11/12 mx-auto bg-blue-800">Calculate</button>
                 </div>
             </div>
-        
-            
-        
         </section>
 
         <section class="w-full p-2 lg:w-4/12 md:w-4/12">
@@ -151,11 +169,7 @@
                 </table>
             </div>
         </section>
-        
     </main>
-
-
-    
     <script src="./js/index.js"></script>
     <script src="./tailwind.config.js"></script>
 </body>
