@@ -28,7 +28,7 @@ function setInputFieldValue(takeFirstInputId, takeSecondInputId, firstSetupField
     const firstInputValue=document.getElementById(takeFirstInputId).value;
         const secondInputValue=document.getElementById(takeSecondInputId).value;
         if (isNaN(firstInputValue) || firstInputValue==='' || firstInputValue<=0 || isNaN(secondInputValue) || secondInputValue ==='' || secondInputValue<=0) {
-            alert("input value must have to be a positive number")
+            alert('You have to give Positive number in the input fields')
         }
         else{
             document.getElementById(firstSetupFieldId).innerText= firstInputValue;

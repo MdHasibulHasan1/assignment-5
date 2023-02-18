@@ -12,7 +12,7 @@ function getInputFieldValues(firstInputId, secondInputId){
     const secondValueInString=document.getElementById(secondInputId).value;
     //Validation Check
     if (isNaN(firstValueInString) || isNaN(secondValueInString || firstValueInString==='' || secondValueInString==='' || firstValueInString<=0 || secondValueInString<=0)) {
-        return alert('Enter positive Number in this input field');
+        return alert('Enter positive Number in the input fields');
     }
     else if(firstValueInString>0 && secondValueInString>0) {
         document.getElementById(firstInputId).value="";
@@ -24,7 +24,7 @@ function getInputFieldValues(firstInputId, secondInputId){
         return valueInNumber;
     }
     else{
-        return alert('You have to give Positive number in the input field');
+        return alert('You have to give Positive number in the input fields');
     }
 }
 // Common function to get Element InnerText
@@ -42,9 +42,8 @@ function displayData(title, area) {
       <td>${title}</td>
       <td class="area">${area}cm<sup>2</sup></td>
       <td>
-      <button class="convert-btn lg:px-2 lg:py-3 md:p-1 text-white rounded bg-blue-800">Covert to m<sup>2</sup></button>
+      <button class="lg:px-2 md:p-1 text-white rounded bg-blue-800">Covert to m<sup>2</sup></button>
       </td> 
-      
     `;
     container.appendChild(tr);
   }
