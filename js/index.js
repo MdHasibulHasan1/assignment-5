@@ -47,17 +47,7 @@ function displayData(title, area) {
       <td><i class="delete-btn fa-solid fa-delete-left"></i></td>
     `;
     container.appendChild(tr);
-    // convert cm2 to m2
-    const convertButtons = document.getElementsByClassName('convert-btn');
-    for (const item of convertButtons) {
-        item.addEventListener('click', function(e){
-            e.target.innerText='done';
-           const areas = document.getElementsByClassName('areas');
-            for (const areaM2 of areas) {
-                areaM2.innerHTML=`<span>${(parseInt(areaM2.innerText)*0.0001).toFixed(4)}<span>m</sup>`;
-            }
-        })
-    }
+    
     // Delete Item
   const items = document.getElementsByClassName('delete-btn');
   for (const item of items) {
