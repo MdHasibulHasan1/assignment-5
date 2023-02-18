@@ -7,15 +7,13 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.50.1/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-     .hide{
-        display: none;
-     }
-    </style>
+    <script src="https://kit.fontawesome.com/d5eae9e4d2.js" crossorigin="anonymous"></script>
+
+
 </head>
-<body class="w-full">
-    <header class="mx-auto">
-        <div class="navbar bg-blue-200 rounded-sm  mx-auto flex justify-between align-middle">
+<body class="max-w-7xl w-11/12 mx-auto">
+    <header class="mb-3">
+        <div class="navbar bg-blue-50 rounded-sm  mx-auto flex justify-between align-middle">
             <div class="flex flex-col">
               <a class="font-bold text-3xl">Interactive </a>
               <a class="text-sm">Geometry Book</a>
@@ -27,67 +25,89 @@
         </div>
     </header>
     <main class=" md:flex lg:flex">
-        <section class="hide grid gap-3 md:grid-cols-2 lg:grid-cols-3 md:w-8/12 lg:w-8/12">
+        <section class="grid gap-3 md:grid-cols-2 lg:grid-cols-3 md:w-8/12 lg:w-8/12">
             <!-- Triangle Area -->
-            <div id="card-one" class="card w-full bg-base-100 shadow-xl px-3  py-4">
-                <div class="w-10/12 mx-auto">
+            <div class="card w-full bg-base-100 shadow-xl px-3  py-4">
+                <div class=" w-10/12 mx-auto">
                     <img class="w-full h-36" src="./images/triangle.png" alt="">
                 </div>
-                <h1 id="triangle-title" class="text-center text-3xl font-semibold">Triangle</h1>
-                <div class="text-center">Area(A) = 0.5×b×h</div>
-                
-                <div class="flex w-10/12 mx-auto justify-around">
-                    <input placeholder="b" class="bg-slate-200 p-1 outline-none inline-block w-3/12" type="text" name="" id="triangle-base">
-                    <span>cm</span>
-                    <input placeholder="h" class="bg-slate-200 p-1 outline-none inline-block w-3/12" type="text" name="" id="triangle-height">
-                    <span>cm</span>
-                </div><br>
+                <h1 id="triangle-title" class="pt-4 text-center text-3xl font-semibold">Triangle</h1>
+                <div class="text-center mt-2 mb-3">Area(A) = 0.5×b×h</div>
+                <div class="text-center flex align-middle justify-center gap-2 mb-3">b=<span id="set-triangle-first-input">0</span>cm h= <span id="set-triangle-second-input">0</span>cm
+                    <i id="visible-triangle-field" class="fa-solid fa-2x text-black fa-pen-to-square"></i>
+                </div>
+                <div id="hidden-triangle-input-field"  class="flex invisible w-11/12 align-middle justify-center mb-2">
+                    <div class="">
+                        <input placeholder="b" class="bg-slate-200 p-1 outline-none inline-block w-3/12" type="text" name="" id="triangle-base">
+                        <span>cm</span>
+                        <input placeholder="h" class="bg-slate-200 p-1 outline-none inline-block w-3/12" type="text" name="" id="triangle-height">
+                        <span>cm</span>
+                    </div>
+                    <i id="triangle-check-box" class="fa-solid text-blue-800 fa-2x fa-square-check"></i>
+                </div>
                 <div>
                   <button id="triangle-btn" class="btn w-11/12 mx-auto bg-blue-800">Calculate</button>
                 </div>
             </div>
         <!-- Rectangle Area -->
-            <div id="card-tow" class="card w-full bg-base-100 shadow-xl px-3 py-4 ">
+            <div class="card w-full bg-base-100 shadow-xl px-3 py-4 ">
                 <div class="w-10/12 mx-auto">
                     <img class="w-full h-36" src="./images/rectangle.png" alt="">
                 </div>
-                <h1 id="rectangle-title" class="text-center text-3xl font-semibold">Rectangle</h1>
-                <div class="text-center">Area(A)= w×I</div>
-                
-                <div class="flex w-10/12 mx-auto justify-around">
-                    <input placeholder="w" class="bg-slate-200 p-1 outline-none inline-block w-3/12" type="text" name="" id="rectangle-width">
-                    <span>cm</span>
-                    <input placeholder="I" class="bg-slate-200 p-1 outline-none inline-block w-3/12" type="text" name="" id="rectangle-length">
-                    <span>cm</span>
-                </div><br>
+                <h1 id="rectangle-title" class="pt-4 text-center text-3xl font-semibold">Rectangle</h1>
+                <div class="text-center  mt-2 mb-3">Area(A)= w×I</div>
+                <!--  -->
+                <div class="text-center flex align-middle justify-center gap-2 mb-3">w=<span id="set-rectangle-first-input">0</span>cm i= <span id="set-rectangle-second-input">0</span>cm
+                    <i id="visible-rectangle-field" class="fa-solid fa-2x text-black fa-pen-to-square"></i>
+                </div>
+                <!--  -->
+                <div id="hidden-rectangle-input-field"  class="flex invisible w-11/12 align-middle justify-center mb-2">
+                    <div class="">
+                        <input placeholder="w" class="bg-slate-200 p-1 outline-none inline-block w-3/12" type="text" name="" id="rectangle-width">
+                        <span>cm</span>
+                        <input placeholder="I" class="bg-slate-200 p-1 outline-none inline-block w-3/12" type="text" name="" id="rectangle-length">
+                        <span>cm</span>
+                    </div>
+                    <i id="rectangle-check-box" class="fa-solid text-blue-800 fa-2x fa-square-check"></i>
+                </div>
+    
                 <div>
                   <button id="rectangle-btn" class="btn w-11/12 mx-auto bg-blue-800">Calculate</button>
                 </div>
             </div>
             <!-- Parallelogram Area -->
-            <div id="card-three" class="card w-full bg-base-100 shadow-xl px-3 py-4 ">
+            <div class="card w-full bg-base-100 shadow-xl px-3 py-4 ">
                 <div class="w-10/12 mx-auto">
                     <img class="w-full h-36" src="./images/parallelogram.png" alt="">
                 </div>
-                <h1 id="parallelogram-title" class="text-center text-3xl font-semibold">Parallelogram</h1>
-                <div class="text-center">Area(A)= b×h</div>
-                <div class="flex w-10/12 mx-auto justify-around">
-                    <input placeholder="b" class="bg-slate-200 p-1 outline-none inline-block w-3/12" type="text" name="" id="parallelogram-base">
-                    <span>cm</span>
-                    <input placeholder="h" class="bg-slate-200 p-1 outline-none inline-block w-3/12" type="text" name="" id="parallelogram-height">
-                    <span>cm</span>
-                </div><br>
+                <h1 id="parallelogram-title" class="pt-4 text-center text-3xl font-semibold">Parallelogram</h1>
+                <div class="text-center  mt-2 mb-3">Area(A)= b×h</div>
+
+                <div class="text-center flex align-middle justify-center gap-2 mb-3">b=<span id="set-parallelogram-first-input">0</span>cm h= <span id="set-parallelogram-second-input">0</span>cm
+                    <i id="visible-parallelogram-field" class="fa-solid fa-2x text-black fa-pen-to-square"></i>
+                </div>
+                <div id="hidden-parallelogram-input-field" class="flex invisible w-11/12 align-middle justify-center mb-2">
+                    <div class="">
+                        <input placeholder="b" class="bg-slate-200 p-1 outline-none inline-block w-3/12" type="text" name="" id="parallelogram-base">
+                        <span>cm</span>
+                        <input placeholder="h" class="bg-slate-200 p-1 outline-none inline-block w-3/12" type="text" name="" id="parallelogram-height">
+                        <span>cm</span>
+                    </div>
+                    <div>
+                        <i id="parallelogram-check-box" class="fa-solid text-blue-800 fa-2x fa-square-check"></i>
+                    </div>
+                </div>
                 <div>
-                  <button id="parallelogram-btn" class="btn w-11/12 mx-auto bg-blue-800">Calculate</button>
+                    <button id="parallelogram-btn" class="btn w-11/12 mx-auto bg-blue-800">Calculate</button>
                 </div>
             </div>
             <!-- Rhombus Area -->
-            <div id="card-four" class="card w-full bg-base-100  shadow-xl px-3 py-4 ">
+            <div class="card w-full bg-base-100  shadow-xl px-3 py-4 ">
                 <div class="w-10/12 mx-auto">
                     <img class="w-full h-36" src="./images/rhombus.png" alt="">
                 </div>
-                <h1 id="rhombus-title" class="text-center text-3xl font-semibold">Rhombus</h1>
-                <div class="text-center">Area(A)= 0.5×d<sub>1</sub>×d<sub>2</sub></div>
+                <h1 id="rhombus-title" class="pt-4 text-center text-3xl font-semibold">Rhombus</h1>
+                <div class="text-center  mt-2 mb-3">Area(A)= 0.5×d<sub>1</sub>×d<sub>2</sub></div>
                 <div class="flex w-10/12 mx-auto justify-around">
                     <input placeholder="d1" class="bg-slate-200 p-1 outline-none inline-block w-3/12" type="text" name="" id="rhombus-d1">
                     <span>cm</span>
@@ -99,12 +119,12 @@
                 </div>
             </div>
             <!-- Pentagon Area -->
-            <div id="card-five" class="card w-full bg-base-100  shadow-xl px-3 py-4 ">
+            <div class="card w-full bg-base-100  shadow-xl px-3 py-4 ">
                 <div class="w-10/12 mx-auto">
                     <img class="w-full h-36" src="./images/pentagon.png" alt="">
                 </div>
-                <h1 id="pentagon-title" class="text-center text-3xl font-semibold">Pentagon</h1>
-                <div class="text-center">Area(A)= 0.5×p×a</div>
+                <h1 id="pentagon-title" class="pt-4 text-center text-3xl font-semibold">Pentagon</h1>
+                <div class="text-center  mt-2 mb-3">Area(A)= 0.5×p×a</div>
                 <div class="flex w-10/12 mx-auto justify-around">
                     <input placeholder="p" class="bg-slate-200 p-1 outline-none inline-block w-3/12" type="text" name="" id="pentagon-p">
                     <span>cm</span>
@@ -116,12 +136,12 @@
                 </div>
             </div>
             <!-- Ellipse Area -->
-            <div id="card-six" class="card w-full bg-base-100  shadow-xl px-3 py-4 ">
+            <div class="card w-full bg-base-100 shadow-xl px-3 py-4 ">
                 <div class="w-10/12 mx-auto">
                     <img class="w-full h-36" src="./images/ellipse.png" alt="">
                 </div>
-                <h1 id="ellipse-title" class="text-center text-3xl font-semibold">Ellipse</h1>
-                <div class="text-center">Area(A)= πab</div>
+                <h1 id="ellipse-title" class="pt-4 text-center text-3xl font-semibold">Ellipse</h1>
+                <div class="text-center  mt-2 mb-3">Area(A)= πab</div>
                 <div class="flex w-10/12 mx-auto justify-around">
                     <input placeholder="a" class="bg-slate-200 p-1 outline-none inline-block w-3/12" type="text" name="" id="ellipse-a">
                     <span>cm</span>
@@ -139,15 +159,16 @@
                 <h1 class="text-center w-full text-3xl font-semibold" >Area Calculation</h1>
                 <table class="table w-11/12  mx-auto">
                     <tbody id="table-container">
-                      <!-- <tr>
-                        <td></td>
+                      <!-- <tr class="table-tr">
                       </tr> -->
                     </tbody>
+
                 </table>
             </div>
         </section>
     </main>
     <script src="./js/index.js"></script>
+    <script src="./js/optional.js"></script>
     <script src="./tailwind.config.js"></script>
 </body>
 </html>

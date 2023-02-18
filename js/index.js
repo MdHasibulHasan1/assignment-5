@@ -1,12 +1,18 @@
+
+
+
+
+
+
+
+
+
 document.getElementById('blog-btn').addEventListener('click', function(){
     window.location.href = '../question.html';
     document.body.style='display:none';
-    
-    
 })
-
-
 let serial=0;
+
 // triangle
 document.getElementById('triangle-btn').addEventListener('click', function(){
     const triangleTitle= getElementFieldInnerText('triangle-title')
@@ -15,7 +21,7 @@ document.getElementById('triangle-btn').addEventListener('click', function(){
     const triangleHeight = triangle.secondInputNumber;
     serial += 1;
     const areaOfTriangle= 0.5*triangleBase*triangleHeight;
-    displayData(triangleTitle, areaOfTriangle.toFixed(2));
+    displayData(triangleTitle, parseFloat(areaOfTriangle.toFixed(2)));
     
 
 })
@@ -28,7 +34,7 @@ document.getElementById('rectangle-btn').addEventListener('click', function(){
     serial += 1;
     
     const areaOfRectangle= rectangleWidth*rectangleLength;
-    displayData(rectangleTitle, areaOfRectangle.toFixed(2));
+    displayData(rectangleTitle, parseFloat(areaOfRectangle.toFixed(2)));
 
 })
 // parallelogram
@@ -40,7 +46,7 @@ document.getElementById('parallelogram-btn').addEventListener('click', function(
     serial += 1;
     
     const areaOfParallelogram= parallelogramBase*parallelogramHeight;
-    displayData(parallelogramTitle, areaOfParallelogram.toFixed(2));
+    displayData(parallelogramTitle, parseFloat(areaOfParallelogram.toFixed(2)));
 
 
 })
@@ -53,7 +59,7 @@ document.getElementById('rhombus-btn').addEventListener('click', function(){
     serial += 1;
     
     const areaOfRhombus=0.5*rhombusD1*rhombusD2;
-    displayData(rhombusTitle, areaOfRhombus.toFixed(2));
+    displayData(rhombusTitle, parseFloat(areaOfRhombus.toFixed(2)));
 
 })
 // pentagon
@@ -65,7 +71,7 @@ document.getElementById('pentagon-btn').addEventListener('click', function(){
     serial += 1;
     
     const areaOfPentagon=0.5*pentagonP*pentagonA;
-    displayData(pentagonTitle, areaOfPentagon.toFixed(2));
+    displayData(pentagonTitle, parseFloat(areaOfPentagon.toFixed(2)));
 
 })
 
@@ -80,7 +86,7 @@ document.getElementById('ellipse-btn').addEventListener('click', function(){
     serial += 1;
     
     const areaOfEllipse=PI* ellipseA* ellipseB;
-    displayData(ellipseTitle, areaOfEllipse.toFixed(2));
+    displayData(ellipseTitle, parseFloat(areaOfEllipse.toFixed(2)));
 
 })
 
@@ -126,20 +132,28 @@ function displayData(title, area) {
     tr.innerHTML = `
       <td>${serial}</td>
       <td>${title}</td>
-      <td>${area}cm<sup>2</sup></td>
+      <td class="area">${area}cm<sup>2</sup></td>
       <td>
-      <button class="lg:px-2 lg:py-3 md:p-1 text-white rounded bg-blue-800">Covert to m<sup>2</sup></button>
+      <button class="convert-btn lg:px-2 lg:py-3 md:p-1 text-white rounded bg-blue-800">Covert to m<sup>2</sup></button>
       </td> 
       
     `;
     container.appendChild(tr);
-    
   }
 
-
-
-
-
+/* 
+  const convertButton=document.getElementsByClassName('convert-btn');
+  for (const element of convertButton) {
+      
+      element.addEventListener('click', function(){
+          const allArea = document.getElementsByClassName('area');
+          for (const area of allArea) {
+              const areaInnerText=area.innerText;
+              const cmTom= parseFloat(areaInnerText)/100;
+              area.innerText= cmTom;
+          }
+      })
+  } */
 
 // Card Random Background Color
   function generateRandomColor(){
@@ -152,7 +166,7 @@ function displayData(title, area) {
 }
 const cards=document.getElementsByClassName('card');
 for (const card of cards) {
-    card.addEventListener('mouseleave', function(){
+    card.addEventListener('mouseenter', function(){
         card.style.backgroundColor= generateRandomColor();
     })
 }
