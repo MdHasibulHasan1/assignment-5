@@ -19,13 +19,11 @@ document.getElementById('rectangle-check-box').addEventListener('click', functio
 document.getElementById('visible-parallelogram-field').addEventListener('click', function(){
     visibilityControl('hidden-parallelogram-input-field');
 })
-
 document.getElementById('parallelogram-check-box').addEventListener('click', function(){
     setInputFieldValue('parallelogram-base', 'parallelogram-height', 'set-parallelogram-first-input', 'set-parallelogram-second-input')
 })
 
-
-// common function
+// common function to Check input data And Set input field value to the top
 function setInputFieldValue(takeFirstInputId, takeSecondInputId, firstSetupFieldId, secondSetupFieldId){
     const firstInputValue=document.getElementById(takeFirstInputId).value;
         const secondInputValue=document.getElementById(takeSecondInputId).value;
@@ -37,6 +35,7 @@ function setInputFieldValue(takeFirstInputId, takeSecondInputId, firstSetupField
             document.getElementById(secondSetupFieldId).innerText= secondInputValue;
         }
 }
+// Common function 
 function visibilityControl(elementId){
     const inVisibleField = document.getElementById(elementId);
     inVisibleField.classList.toggle('invisible');

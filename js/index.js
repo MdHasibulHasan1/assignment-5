@@ -1,112 +1,20 @@
+let serial=0;
 
-
-
-
-
-
-
-
-
+// added blog button event listener
 document.getElementById('blog-btn').addEventListener('click', function(){
     window.location.href = '../question.html';
     document.body.style='display:none';
 })
-let serial=0;
 
-// triangle
-document.getElementById('triangle-btn').addEventListener('click', function(){
-    const triangleTitle= getElementFieldInnerText('triangle-title')
-    const triangle = getInputFieldValues('triangle-base', 'triangle-height');
-    const triangleBase = triangle.firstInputNumber;
-    const triangleHeight = triangle.secondInputNumber;
-    serial += 1;
-    const areaOfTriangle= 0.5*triangleBase*triangleHeight;
-    displayData(triangleTitle, parseFloat(areaOfTriangle.toFixed(2)));
-    
-
-})
-// rectangle
-document.getElementById('rectangle-btn').addEventListener('click', function(){
-    const rectangleTitle= getElementFieldInnerText('rectangle-title')
-    const rectangle = getInputFieldValues('rectangle-width', 'rectangle-length');
-    const rectangleWidth = rectangle.firstInputNumber;
-    const rectangleLength = rectangle.secondInputNumber;
-    serial += 1;
-    
-    const areaOfRectangle= rectangleWidth*rectangleLength;
-    displayData(rectangleTitle, parseFloat(areaOfRectangle.toFixed(2)));
-
-})
-// parallelogram
-document.getElementById('parallelogram-btn').addEventListener('click', function(){
-    const parallelogramTitle= getElementFieldInnerText('parallelogram-title')
-    const  parallelogram = getInputFieldValues('parallelogram-base', 'parallelogram-height');
-    const parallelogramBase = parallelogram.firstInputNumber;
-    const  parallelogramHeight = parallelogram.secondInputNumber;
-    serial += 1;
-    
-    const areaOfParallelogram= parallelogramBase*parallelogramHeight;
-    displayData(parallelogramTitle, parseFloat(areaOfParallelogram.toFixed(2)));
-
-
-})
-// rhombus
-document.getElementById('rhombus-btn').addEventListener('click', function(){
-    const rhombusTitle= getElementFieldInnerText('rhombus-title')
-    const  rhombus = getInputFieldValues('rhombus-d1', 'rhombus-d2');
-    const rhombusD1 = rhombus.firstInputNumber;
-    const  rhombusD2 = rhombus.secondInputNumber;
-    serial += 1;
-    
-    const areaOfRhombus=0.5*rhombusD1*rhombusD2;
-    displayData(rhombusTitle, parseFloat(areaOfRhombus.toFixed(2)));
-
-})
-// pentagon
-document.getElementById('pentagon-btn').addEventListener('click', function(){
-    const pentagonTitle= getElementFieldInnerText('pentagon-title')
-    const  pentagon = getInputFieldValues('pentagon-p', 'pentagon-a');
-    const pentagonP = pentagon.firstInputNumber;
-    const pentagonA = pentagon.secondInputNumber;
-    serial += 1;
-    
-    const areaOfPentagon=0.5*pentagonP*pentagonA;
-    displayData(pentagonTitle, parseFloat(areaOfPentagon.toFixed(2)));
-
-})
-
-// ellipse
-document.getElementById('ellipse-btn').addEventListener('click', function(){
-    const ellipseTitle= getElementFieldInnerText('ellipse-title')
-    const  ellipse = getInputFieldValues('ellipse-a', 'ellipse-b');
-    const ellipseA = ellipse.firstInputNumber;
-    const ellipseB = ellipse.secondInputNumber;
-
-    const PI= 3.1416;
-    serial += 1;
-    
-    const areaOfEllipse=PI* ellipseA* ellipseB;
-    displayData(ellipseTitle, parseFloat(areaOfEllipse.toFixed(2)));
-
-})
-
-
-
-// Get Input Field Value
+//Common function to Get Input Field Value
 function getInputFieldValues(firstInputId, secondInputId){
     const firstValueInString=document.getElementById(firstInputId).value;
     const secondValueInString=document.getElementById(secondInputId).value;
-    //Validation
-    if (isNaN(firstValueInString) || isNaN(secondValueInString)) {
-        return alert('Enter a number');
+    //Validation Check
+    if (isNaN(firstValueInString) || isNaN(secondValueInString || firstValueInString==='' || secondValueInString==='' || firstValueInString<=0 || secondValueInString<=0)) {
+        return alert('Enter positive Number in this input field');
     }
-    else if (firstValueInString==='' || secondValueInString==='') {
-        alert('Empty String does not Allowed');
-    }
-    else if (firstValueInString<=0 || secondValueInString<=0) {
-        alert('Enter a positive Number');
-    }
-    else{
+    else if(firstValueInString>0 && secondValueInString>0) {
         document.getElementById(firstInputId).value="";
         document.getElementById(secondInputId).value="";
         const valueInNumber = {
@@ -115,15 +23,15 @@ function getInputFieldValues(firstInputId, secondInputId){
         }
         return valueInNumber;
     }
-
+    else{
+        return alert('You have to give Positive number in the input field');
+    }
 }
-// get Element InnerText
+// Common function to get Element InnerText
 function getElementFieldInnerText(elementId){
     const innerTextInString=document.getElementById(elementId).innerText;
     return innerTextInString;
 }
-
-
 
 // common function to display data
 function displayData(title, area) {
@@ -141,21 +49,74 @@ function displayData(title, area) {
     container.appendChild(tr);
   }
 
-/* 
-  const convertButton=document.getElementsByClassName('convert-btn');
-  for (const element of convertButton) {
-      
-      element.addEventListener('click', function(){
-          const allArea = document.getElementsByClassName('area');
-          for (const area of allArea) {
-              const areaInnerText=area.innerText;
-              const cmTom= parseFloat(areaInnerText)/100;
-              area.innerText= cmTom;
-          }
-      })
-  } */
+// triangle
+document.getElementById('triangle-btn').addEventListener('click', function(){
+    const triangleTitle= getElementFieldInnerText('triangle-title')
+    const triangle = getInputFieldValues('triangle-base', 'triangle-height');
+    const triangleBase = triangle.firstInputNumber;
+    const triangleHeight = triangle.secondInputNumber;
+    serial += 1;
+    const areaOfTriangle= 0.5*triangleBase*triangleHeight;
+    displayData(triangleTitle, parseFloat(areaOfTriangle.toFixed(2)));
+})
+// rectangle
+document.getElementById('rectangle-btn').addEventListener('click', function(){
+    const rectangleTitle= getElementFieldInnerText('rectangle-title')
+    const rectangle = getInputFieldValues('rectangle-width', 'rectangle-length');
+    const rectangleWidth = rectangle.firstInputNumber;
+    const rectangleLength = rectangle.secondInputNumber;
+    serial += 1;
+    
+    const areaOfRectangle= rectangleWidth*rectangleLength;
+    displayData(rectangleTitle, parseFloat(areaOfRectangle.toFixed(2)));
+})
+// parallelogram
+document.getElementById('parallelogram-btn').addEventListener('click', function(){
+    const parallelogramTitle= getElementFieldInnerText('parallelogram-title')
+    const  parallelogram = getInputFieldValues('parallelogram-base', 'parallelogram-height');
+    const parallelogramBase = parallelogram.firstInputNumber;
+    const  parallelogramHeight = parallelogram.secondInputNumber;
+    serial += 1;
+    
+    const areaOfParallelogram= parallelogramBase*parallelogramHeight;
+    displayData(parallelogramTitle, parseFloat(areaOfParallelogram.toFixed(2)));
+})
+// rhombus
+document.getElementById('rhombus-btn').addEventListener('click', function(){
+    const rhombusTitle= getElementFieldInnerText('rhombus-title')
+    const  rhombus = getInputFieldValues('rhombus-d1', 'rhombus-d2');
+    const rhombusD1 = rhombus.firstInputNumber;
+    const  rhombusD2 = rhombus.secondInputNumber;
+    serial += 1;
+    
+    const areaOfRhombus=0.5*rhombusD1*rhombusD2;
+    displayData(rhombusTitle, parseFloat(areaOfRhombus.toFixed(2)));
+})
+// pentagon
+document.getElementById('pentagon-btn').addEventListener('click', function(){
+    const pentagonTitle= getElementFieldInnerText('pentagon-title')
+    const  pentagon = getInputFieldValues('pentagon-p', 'pentagon-a');
+    const pentagonP = pentagon.firstInputNumber;
+    const pentagonA = pentagon.secondInputNumber;
+    serial += 1;
 
-// Card Random Background Color
+    const areaOfPentagon=0.5*pentagonP*pentagonA;
+    displayData(pentagonTitle, parseFloat(areaOfPentagon.toFixed(2)));
+})
+// ellipse
+document.getElementById('ellipse-btn').addEventListener('click', function(){
+    const ellipseTitle= getElementFieldInnerText('ellipse-title')
+    const  ellipse = getInputFieldValues('ellipse-a', 'ellipse-b');
+    const ellipseA = ellipse.firstInputNumber;
+    const ellipseB = ellipse.secondInputNumber;
+    const PI= 3.1416;
+    serial += 1;
+
+    const areaOfEllipse=PI* ellipseA* ellipseB;
+    displayData(ellipseTitle, parseFloat(areaOfEllipse.toFixed(2)));
+})
+
+// Added Random Background Color in the cards
   function generateRandomColor(){
     let maxVal = 0xFFFFFF; 
     let randomNumber = Math.random() * maxVal; 
