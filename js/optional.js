@@ -1,6 +1,6 @@
 
 // triangle
-document.getElementById('visible-triangle-field').addEventListener('click', function(){
+document.getElementById('triangle-visible-icon').addEventListener('click', function(){
     visibilityControl('hidden-triangle-input-field');
 })
 
@@ -8,7 +8,7 @@ document.getElementById('triangle-check-box').addEventListener('click', function
     setInputFieldValue('triangle-base', 'triangle-height', 'set-triangle-first-input', 'set-triangle-second-input')
 })
 // rectangle
-document.getElementById('visible-rectangle-field').addEventListener('click', function(){
+document.getElementById('rectangle-visible-icon').addEventListener('click', function(){
     visibilityControl('hidden-rectangle-input-field');
 })
 
@@ -16,7 +16,7 @@ document.getElementById('rectangle-check-box').addEventListener('click', functio
     setInputFieldValue('rectangle-width', 'rectangle-length', 'set-rectangle-first-input', 'set-rectangle-second-input')
 })
 // parallelogram
-document.getElementById('visible-parallelogram-field').addEventListener('click', function(){
+document.getElementById('parallelogram-visible-icon').addEventListener('click', function(){
     visibilityControl('hidden-parallelogram-input-field');
 })
 document.getElementById('parallelogram-check-box').addEventListener('click', function(){

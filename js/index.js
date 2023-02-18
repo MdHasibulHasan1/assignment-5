@@ -40,14 +40,22 @@ function displayData(title, area) {
     tr.innerHTML = `
       <td>${serial}</td>
       <td>${title}</td>
-      <td class="area">${area}cm<sup>2</sup></td>
+      <td>${area}cm<sup>2</sup></td>
       <td>
-      <button class="lg:px-2 md:p-1 text-white rounded bg-blue-800">Covert to m<sup>2</sup></button>
-      </td> 
+      <button class="convert-btn lg:px-2 md:p-1 text-white rounded bg-blue-800">Covert to m<sup>2</sup></button>
+      </td>
+      <td><i class="delete-btn fa-solid fa-delete-left"></i></td>
     `;
     container.appendChild(tr);
-  }
 
+    // Delete Item
+  const items = document.getElementsByClassName('delete-btn');
+  for (const item of items) {
+    item.addEventListener('click', function(){
+        item.parentElement.parentElement.style.display='none';
+  })}
+}
+    
 // triangle
 document.getElementById('triangle-btn').addEventListener('click', function(){
     const triangleTitle= getElementFieldInnerText('triangle-title')
@@ -56,7 +64,7 @@ document.getElementById('triangle-btn').addEventListener('click', function(){
     const triangleHeight = triangle.secondInputNumber;
     serial += 1;
     const areaOfTriangle= 0.5*triangleBase*triangleHeight;
-    displayData(triangleTitle, parseFloat(areaOfTriangle.toFixed(2)));
+    displayData(triangleTitle, areaOfTriangle.toFixed(2));
 })
 // rectangle
 document.getElementById('rectangle-btn').addEventListener('click', function(){
@@ -67,7 +75,7 @@ document.getElementById('rectangle-btn').addEventListener('click', function(){
     serial += 1;
     
     const areaOfRectangle= rectangleWidth*rectangleLength;
-    displayData(rectangleTitle, parseFloat(areaOfRectangle.toFixed(2)));
+    displayData(rectangleTitle, areaOfRectangle.toFixed(2));
 })
 // parallelogram
 document.getElementById('parallelogram-btn').addEventListener('click', function(){
@@ -78,7 +86,7 @@ document.getElementById('parallelogram-btn').addEventListener('click', function(
     serial += 1;
     
     const areaOfParallelogram= parallelogramBase*parallelogramHeight;
-    displayData(parallelogramTitle, parseFloat(areaOfParallelogram.toFixed(2)));
+    displayData(parallelogramTitle, areaOfParallelogram.toFixed(2));
 })
 // rhombus
 document.getElementById('rhombus-btn').addEventListener('click', function(){
@@ -89,18 +97,18 @@ document.getElementById('rhombus-btn').addEventListener('click', function(){
     serial += 1;
     
     const areaOfRhombus=0.5*rhombusD1*rhombusD2;
-    displayData(rhombusTitle, parseFloat(areaOfRhombus.toFixed(2)));
+    displayData(rhombusTitle, areaOfRhombus.toFixed(2));
 })
 // pentagon
 document.getElementById('pentagon-btn').addEventListener('click', function(){
     const pentagonTitle= getElementFieldInnerText('pentagon-title')
-    const  pentagon = getInputFieldValues('pentagon-p', 'pentagon-a');
+    const  pentagon = getInputFieldValues('pentagon-p', 'pentagon-b');
     const pentagonP = pentagon.firstInputNumber;
-    const pentagonA = pentagon.secondInputNumber;
+    const pentagonB = pentagon.secondInputNumber;
     serial += 1;
 
-    const areaOfPentagon=0.5*pentagonP*pentagonA;
-    displayData(pentagonTitle, parseFloat(areaOfPentagon.toFixed(2)));
+    const areaOfPentagon=0.5*pentagonP*pentagonB;
+    displayData(pentagonTitle, areaOfPentagon.toFixed(2));
 })
 // ellipse
 document.getElementById('ellipse-btn').addEventListener('click', function(){
@@ -112,10 +120,10 @@ document.getElementById('ellipse-btn').addEventListener('click', function(){
     serial += 1;
 
     const areaOfEllipse=PI* ellipseA* ellipseB;
-    displayData(ellipseTitle, parseFloat(areaOfEllipse.toFixed(2)));
+    displayData(ellipseTitle, areaOfEllipse.toFixed(2));
 })
 
-// Added Random Background Color in the cards
+// Add Random Background Color in the cards
   function generateRandomColor(){
     let maxVal = 0xFFFFFF; 
     let randomNumber = Math.random() * maxVal; 
