@@ -22,18 +22,37 @@ document.getElementById('rectangle-btn').addEventListener('click', function(){
     displayData(rectangleTitle, areaOfRectangle);
 
 })
-function getInputFieldValue(inputId){
-    const valueInString=document.getElementById(inputId).value;
-    if (isNaN(valueInString) || valueInString==='') {
-        return alert('Enter a number');
 
+// Get Input Field Value
+function getInputFieldValues(firstInputId, secondInputId){
+    const firstValueInString=document.getElementById(firstInputId).value;
+    const secondValueInString=document.getElementById(secondInputId).value;
+    //Validation
+    if (isNaN(firstValueInString) || isNaN(secondValueInString)) {
+        return alert('Enter a number');
+    }
+    else if (firstValueInString==='' || secondValueInString==='') {
+        alert('Empty String does not Allowed');
+    }
+    else if (firstValueInString<=0 || secondValueInString<=0) {
+        alert('Enter a positive Number');
     }
     else{
-        document.getElementById(inputId).value="";
-        return parseInt(valueInString);
+        document.getElementById(firstInputId).value="";
+        document.getElementById(secondInputId).value="";
+        const valueInNumber = {
+            firstInputNumber:parseInt(firstValueInString),
+            secondInputNumber:parseInt(secondValueInString)
+        }
+        return valueInNumber;
     }
 
 }
+function getElementFieldInnerText(elementId){
+    const innerTextInString=document.getElementById(elementId).innerText;
+    return innerTextInString;
+}
+
 function getElementFieldInnerText(elementId){
     const innerTextInString=document.getElementById(elementId).innerText;
     return innerTextInString;
