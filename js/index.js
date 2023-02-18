@@ -53,8 +53,8 @@ function displayData(title, area) {
         item.addEventListener('click', function(e){
             e.target.innerText='done';
            const areas = document.getElementsByClassName('areas');
-            for (const area of areas) {
-                area.innerHTML=`<span>${parseInt(area.innerText)*0.0001}<span>m</sup>`;
+            for (const areaM2 of areas) {
+                areaM2.innerHTML=`<span>${(parseInt(areaM2.innerText)*0.0001).toFixed(4)}<span>m</sup>`;
             }
         })
     }
